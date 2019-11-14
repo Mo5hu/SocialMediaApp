@@ -19,7 +19,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
