@@ -1,3 +1,5 @@
+import { UserService } from './../Database/user.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+    userPosts
+
+  constructor(
+    private afs: AngularFirestore,
+    private user: UserService
+    ) {
+    const posts = afs.doc(`users/${user.getUID()}`)
+    this.userPosts = posts.valueChanges()
+  }
 
   ngOnInit() {
   }
 
+
+  
 }
