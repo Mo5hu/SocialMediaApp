@@ -1,8 +1,16 @@
 #images {
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
+    max-width: 330px;
 }
 
 .image {
-    width: 33%;
+    width: 31%;
+    margin: 1%;
+}
+
+.user-image {
+    width: 200px;
+    height: 200px;
 }
