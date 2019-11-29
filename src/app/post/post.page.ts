@@ -2,7 +2,6 @@ import { UserService } from './../Database/user.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { post } from 'selenium-webdriver/http';
 import { firestore } from 'firebase';
 
 @Component({

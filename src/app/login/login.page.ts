@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from './../Database/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
   constructor(
     public afAuth: AngularFireAuth, 
     public user:UserService,
-    public router: Router 
+    public router: Router,
+    private alert: AlertController
     ) { }
 
   ngOnInit() {
@@ -40,11 +42,18 @@ export class LoginPage implements OnInit {
         }
 
     } catch(err) {
-        console.dir(err)
-        if(err.code === "auth/user-not-found") {
-          console.log("User not found")
-        }
+      this.showAlert("Error!", err.message + "\nDon't use 'space', '/', '\', '|'... characters")
     }
+  }
+
+  async showAlert(header: string, message: string) {
+    const alert = await this.alert.create({
+      header,
+      message,
+      buttons: ['OK']
+    })
+
+    await alert.present()
   }
 
 }

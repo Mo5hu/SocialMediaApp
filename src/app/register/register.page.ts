@@ -16,6 +16,10 @@ export class RegisterPage implements OnInit {
   username: string = ""
   password: string = ""
   cpassword: string = ""
+  email: string = ""
+  pno: string = ""
+  gender: string = ""
+  isBlocked: boolean = false
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -52,7 +56,6 @@ export class RegisterPage implements OnInit {
       this.showAlert("Success!", "Welcome aboard")
       this.router.navigate(['/tabs'])
     } catch(error) {
-      console.dir(error)
       this.showAlert("Error!", error.message)
     }
   }
